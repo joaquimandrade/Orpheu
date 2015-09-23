@@ -598,6 +598,49 @@ cell AMX_NATIVE_CALL Orpheu::CloneStructFromParam(AMX* amx, cell* params)
 	return 0;
 }
 
+cell AMX_NATIVE_CALL Orpheu::PackStructures(AMX* amx, cell* params)
+{
+	unsigned int totalsize = 0;
+	long structureAddress = 0;
+	StructHandler* structHandler;
+	unsigned int i;
+
+	long *arrayAddr = (long *)MF_GetAmxAddr(amx, params[1]);
+	unsigned int arraySize = params[2];
+
+	for( i = 0; i < arraySize; i++ )
+	{
+		structureAddress = arrayAddr[i];
+		structHandler = Global::StructManagerObj->getHandler(structureAddress);
+		
+		if( structHandler )
+		{
+			totalsize += structHandler->getStructSize();			
+		}
+	}
+
+	if( totalsize == 0 ) // Nubs -_-
+		return 0;
+
+	long PackedstructureAddress = Global::StructManagerObj->createStructureBySize(structHandler, totalsize);
+	
+	long tmpptr = PackedstructureAddress;
+		
+	for( i = 0; i < arraySize; i++ )
+	{
+		structureAddress = arrayAddr[i];
+		structHandler = Global::StructManagerObj->getHandler(structureAddress);
+		
+		if( structHandler )
+		{
+			memcpy((void*)tmpptr, (void*)structureAddress, structHandler->getStructSize());
+			tmpptr += structHandler->getStructSize();
+		}
+	}
+
+	return PackedstructureAddress;
+}
+
 cell AMX_NATIVE_CALL Orpheu::CreateFunction(AMX* amx, cell* params)
 {
 	long structureAddress = params[1];
@@ -1355,6 +1398,7 @@ AMX_NATIVE_INFO OrpheuNatives[] =
 	{ "OrpheuGetStructMember"         , Orpheu::GetStructMember          },
 	{ "OrpheuGetStructFromParam"      , Orpheu::GetStructFromParam       },
 	{ "OrpheuCloneStructFromParam"    , Orpheu::CloneStructFromParam     },
+	{ "OrpheuPackStructures"		  , Orpheu::PackStructures			 },
 	{ "OrpheuCreateFunction"          , Orpheu::CreateFunction           },
 	{ "OrpheuGetEngineFunctionsStruct", Orpheu::GetEngineFunctionsStruct },
 	{ "OrpheuGetDLLFunctionsStruct"   , Orpheu::GetDLLFunctionsStruct    },

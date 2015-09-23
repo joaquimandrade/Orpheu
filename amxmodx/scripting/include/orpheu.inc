@@ -143,6 +143,16 @@ native OrpheuSetStructMember(OrpheuStruct:struct,const memberName[],any:...)
 native OrpheuGetStructMember(OrpheuStruct:struct,const memberName[],any:...)
 
 /**
+ * Packs all the structures referenced by the handles passed through Structures array
+ * 
+ * @param Structures 		An array of handlers of the structures to be packed
+ * @param iSize 			The number of handles passesd, the size of Structures array
+ * 
+ * @return				A handle to the array of structures, points to the first element by default
+ */
+native OrpheuStruct:OrpheuPackStructures({OrpheuStruct}:Structures[], iSize)
+
+/**
  * Retrieves a handler to a struct that hold the addresses of the engine functions
  * By retrieving addresses from the struct is possible to hook them.
  * A easier way to achieve the same thing is by using the stock OrpheuGetEngineFunction
