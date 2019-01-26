@@ -31,7 +31,7 @@
  * 
  * 		OrpheuMemoryReplace("name",0,"weapon_smokegrenade","weapon_flashbang") (where name should be related to a block of data that qualifies the memory as holding a string)
  */
-native OrpheuMemoryReplace(const memoryDataName[],count,any:...)
+native OrpheuMemoryReplace(const memoryDataName[],count,any:...);
 
 /**
  * Replaces data in memory.It works like OrpheuMemoryReplace but starts at a given address	
@@ -43,7 +43,7 @@ native OrpheuMemoryReplace(const memoryDataName[],count,any:...)
  * 
  * @return 					The number of replacements made
  */
-native OrpheuMemoryReplaceAtAddress(address,const memoryDataNameName[],count,any:...)
+native OrpheuMemoryReplaceAtAddress(address,const memoryDataNameName[],count,any:...);
 
 
 /**
@@ -56,7 +56,7 @@ native OrpheuMemoryReplaceAtAddress(address,const memoryDataNameName[],count,any
  * 
  * @return 					If the type of the memory location is not passed by ref, its value
  */
-native OrpheuMemoryGet(const memoryDataName[],any:...)
+native OrpheuMemoryGet(const memoryDataName[],any:...);
 
 /**
  * Retrieves data in memory. It works like OrpheuMemoryGet but starts at a given address
@@ -68,7 +68,7 @@ native OrpheuMemoryGet(const memoryDataName[],any:...)
  *
  * @return 					If the type of the memory location is not passed by ref, its value
  */
-native OrpheuMemoryGetAtAddress(address,const memoryDataName[],any:...)
+native OrpheuMemoryGetAtAddress(address,const memoryDataName[],any:...);
 
 /**
  * Alters data in memory.  The block of data that qualifies memory must also identify it by having identifier blocks.
@@ -81,7 +81,7 @@ native OrpheuMemoryGetAtAddress(address,const memoryDataName[],any:...)
  *
  * @return 					Number of occurences replaced
  */
-native OrpheuMemorySet(const memoryDataName[],count,any:...)
+native OrpheuMemorySet(const memoryDataName[],count,any:...);
 
 /**
  * Alters data in memory.  It works like OrpheuMemorySet but starts at a given address	
@@ -94,5 +94,5 @@ native OrpheuMemorySet(const memoryDataName[],count,any:...)
  *
  * @return 					Number of occurences replaced
  */
-native OrpheuMemorySetAtAddress(address,const memoryDataName[],count,any:...)
+native OrpheuMemorySetAtAddress(address,const memoryDataName[],count,any:...);
 
