@@ -6,6 +6,7 @@
 
 #include <orpheu_const>
 
+
 /**
  * Retrieves a function based on a function name
  * The name must be the same as the one in the file where the function is defined
