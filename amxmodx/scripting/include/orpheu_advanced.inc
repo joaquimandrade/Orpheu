@@ -13,7 +13,7 @@
  * @param bytes				An array to hold the bytes
  * @param count				The number of bytes to get
  */
-native OrpheuGetBytesAtAddress(address,bytes[],count)
+native OrpheuGetBytesAtAddress(address,bytes[],count);
 
 /**
  *  Gets the address in memory of a function given a handler to it
@@ -22,7 +22,7 @@ native OrpheuGetBytesAtAddress(address,bytes[],count)
  *
  * @return 					The address o the function
  */
-native OrpheuGetFunctionAddress(OrpheuFunction:function)
+native OrpheuGetFunctionAddress(OrpheuFunction:function);
 
 /**
  *  Gets a handle to a struct given an address in memory
@@ -32,7 +32,7 @@ native OrpheuGetFunctionAddress(OrpheuFunction:function)
  *
  * @return 					A handler to the struct
  */
-native OrpheuStruct:OrpheuGetStructFromAddress(OrpheuStructType:structType,address)
+native OrpheuStruct:OrpheuGetStructFromAddress(OrpheuStructType:structType,address);
 
 /**
  *  Gets the handler to a function given its address and the name that you give it in the file where you define the function
@@ -43,7 +43,7 @@ native OrpheuStruct:OrpheuGetStructFromAddress(OrpheuStructType:structType,addre
  *
  * @return 					A handler to the function
  */
-native OrpheuFunction:OrpheuCreateFunction(address,const libFunctionName[],const classname[]="")
+native OrpheuFunction:OrpheuCreateFunction(address,const libFunctionName[],const classname[]="");
 
 /**
  *  Gets the offset of the adress where the function is located to the base address of its library
@@ -52,7 +52,7 @@ native OrpheuFunction:OrpheuCreateFunction(address,const libFunctionName[],const
  *
  * @return 					The offset
  */
-native OrpheuGetFunctionOffset(OrpheuFunction:function)
+native OrpheuGetFunctionOffset(OrpheuFunction:function);
 
 /**
  *  Gets the adress of a library
@@ -61,7 +61,7 @@ native OrpheuGetFunctionOffset(OrpheuFunction:function)
  *
  * @return 					The address
  */
-native OrpheuGetLibraryAddress(const libraryName[])
+native OrpheuGetLibraryAddress(const libraryName[]);
 
 /**
  *  This native should retrieve the address of functions called from an address
@@ -74,4 +74,4 @@ native OrpheuGetLibraryAddress(const libraryName[])
  *
  * @return 					The address of the function called
  */
-native OrpheuGetNextCallAtAddress(address,number)
+native OrpheuGetNextCallAtAddress(address,number);
