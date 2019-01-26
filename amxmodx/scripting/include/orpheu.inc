@@ -15,7 +15,7 @@
  *
  * @return 					A handler to the function
  */
-native OrpheuFunction:OrpheuGetFunction(const libFunctionName[],const className[]="")
+native OrpheuFunction:OrpheuGetFunction(const libFunctionName[],const className[]="");
 
 /**
  * Hooks a function
@@ -26,14 +26,14 @@ native OrpheuFunction:OrpheuGetFunction(const libFunctionName[],const className[
  *
  * @return 					A handler to the hook
  */
-native OrpheuHook:OrpheuRegisterHook(OrpheuFunction:function,const hookFunctionName[],OrpheuHookPhase:phase = OrpheuHookPre)
+native OrpheuHook:OrpheuRegisterHook(OrpheuFunction:function,const hookFunctionName[],OrpheuHookPhase:phase = OrpheuHookPre);
 
 /**
  * Unregisters a hook (stops it)
  *
  * @param hook			A handler to the hook
  */
-native OrpheuUnregisterHook(OrpheuHook:hook)
+native OrpheuUnregisterHook(OrpheuHook:hook);
 
 /**
  * Calls a function without triggering its hooks
@@ -41,7 +41,7 @@ native OrpheuUnregisterHook(OrpheuHook:hook)
  * @param function		A handler to the function
  * @param any			The arguments of the function
  */
-native OrpheuCall(OrpheuFunction:function,any:...)
+native OrpheuCall(OrpheuFunction:function,any:...);
 
 /**
  * Calls a function and triggers its hooks
@@ -49,7 +49,7 @@ native OrpheuCall(OrpheuFunction:function,any:...)
  * @param function		A handler to the function
  * @param any			The arguments of the function
  */
-native OrpheuCallSuper(OrpheuFunction:function,any:...)
+native OrpheuCallSuper(OrpheuFunction:function,any:...);
 
 /**
  * Gets the return value of a function (To be used in hooks Post)
@@ -57,14 +57,14 @@ native OrpheuCallSuper(OrpheuFunction:function,any:...)
  * @param any			In case the value is multi cell (string or vector), an holder to receive them by ref
  * @return				In case the value is uni cell, the value itself
  */
-native any:OrpheuGetReturn(any:...)
+native any:OrpheuGetReturn(any:...);
 
 /**
  * Sets the return value of a function
  *
  * @param any			Depending on the type of the return of the function, a value to be used as the return as the original hooked function
  */
-native OrpheuSetReturn(any:...)
+native OrpheuSetReturn(any:...);
 
 /**
  * Sets the value of an argument
@@ -72,7 +72,7 @@ native OrpheuSetReturn(any:...)
  * @param num 			The number of the argument. The first argument would be the number "1"
  * @param any			Depending on the type of the argument, a value to be replace it to change the behaviour of the hooked function
  */
-native OrpheuSetParam(num,any:...)
+native OrpheuSetParam(num,any:...);
 
 /**
  * Creates a struct
@@ -81,7 +81,7 @@ native OrpheuSetParam(num,any:...)
  * 
  * @return				A handler to the struct
  */
-native OrpheuStruct:OrpheuCreateStruct(OrpheuStructType:structType)
+native OrpheuStruct:OrpheuCreateStruct(OrpheuStructType:structType);
 
 /**
  * Retrieves the value of a member of a struct given the argument number the struct is and the member name
@@ -92,7 +92,7 @@ native OrpheuStruct:OrpheuCreateStruct(OrpheuStructType:structType)
  * 
  * @return				In case the value is uni cell, the value itself
  */
-native OrpheuGetParamStructMember(num,const memberName[],any:...)
+native OrpheuGetParamStructMember(num,const memberName[],any:...);
 
 /**
  * Sets the value of member of a struct given the argument number the struct is and the member name
@@ -101,7 +101,7 @@ native OrpheuGetParamStructMember(num,const memberName[],any:...)
  * @param memberName 	The name of the member of the struct we want to deal with
  * @param any 			The new value
  */
-native OrpheuSetParamStructMember(num,const memberName[],any:...)
+native OrpheuSetParamStructMember(num,const memberName[],any:...);
 
 /**
  * Gets a struct handler for a struct received as an argument 
@@ -111,7 +111,7 @@ native OrpheuSetParamStructMember(num,const memberName[],any:...)
  * 
  * @return				A handler to the struct
  */
-native OrpheuStruct:OrpheuGetStructFromParam(num)
+native OrpheuStruct:OrpheuGetStructFromParam(num);
 
 /**
  * Creates a struct equal to one received as an argument
@@ -120,7 +120,7 @@ native OrpheuStruct:OrpheuGetStructFromParam(num)
  * 
  * @return				A handler to the struct
  */
-native OrpheuStruct:OrpheuCloneStructFromParam(num)
+native OrpheuStruct:OrpheuCloneStructFromParam(num);
 
 /**
  * Sets the value of a member of a struct given a struct handler and the member name
@@ -129,7 +129,7 @@ native OrpheuStruct:OrpheuCloneStructFromParam(num)
  * @param memberName 	The name of the member of the struct we want to deal with
  * @param any 			The new value
  */
-native OrpheuSetStructMember(OrpheuStruct:struct,const memberName[],any:...)
+native OrpheuSetStructMember(OrpheuStruct:struct,const memberName[],any:...);
 
 /**
  * Retrieves the value of a member of a struct given a struct handler and the member name
@@ -140,7 +140,7 @@ native OrpheuSetStructMember(OrpheuStruct:struct,const memberName[],any:...)
  * 
  * @return				In case the value is uni cell, the value itself
  */
-native OrpheuGetStructMember(OrpheuStruct:struct,const memberName[],any:...)
+native OrpheuGetStructMember(OrpheuStruct:struct,const memberName[],any:...);
 
 /**
  * Retrieves a handler to a struct that hold the addresses of the engine functions
@@ -149,7 +149,7 @@ native OrpheuGetStructMember(OrpheuStruct:struct,const memberName[],any:...)
  
  * @return				A handler to a struct that holds the engine functions
  */
-native OrpheuStruct:OrpheuGetEngineFunctionsStruct()
+native OrpheuStruct:OrpheuGetEngineFunctionsStruct();
 
 /**
  * Retrieves a handler to a struct that hold the addresses of the dll functions
@@ -158,7 +158,7 @@ native OrpheuStruct:OrpheuGetEngineFunctionsStruct()
  
  * @return				A handler to a struct that holds the dll functions
  */
-native OrpheuStruct:OrpheuGetDLLFunctionsStruct()
+native OrpheuStruct:OrpheuGetDLLFunctionsStruct();
 
 /**
  * Retrieves a handler to a function given a classname, the function name and the classname
@@ -172,7 +172,7 @@ native OrpheuStruct:OrpheuGetDLLFunctionsStruct()
  * @param libClassName	 	The library function name as it is in the file created to define the function
  * @return					A handler to the function
  */
-native OrpheuFunction:OrpheuGetFunctionFromClass(const entityClassName[],const libFunctionName[],const libClassName[])
+native OrpheuFunction:OrpheuGetFunctionFromClass(const entityClassName[],const libFunctionName[],const libClassName[]);
 
 /**
  * Retrieves a handler to a function given the ID of an entity, the function name and the classname
@@ -186,7 +186,7 @@ native OrpheuFunction:OrpheuGetFunctionFromClass(const entityClassName[],const l
  * @param libClassName	 	The library function name as it is in the file created to define the function
  * @return					A handler to the function
  */
-native OrpheuFunction:OrpheuGetFunctionFromEntity(id,const libFunctionName[],const libClassName[])
+native OrpheuFunction:OrpheuGetFunctionFromEntity(id,const libFunctionName[],const libClassName[]);
 
 /**
  * Retrieves a handler to a function given an object, the function name and the classname
@@ -200,7 +200,7 @@ native OrpheuFunction:OrpheuGetFunctionFromEntity(id,const libFunctionName[],con
  * @param libClassName	 	The library function name as it is in the file created to define the function
  * @return					A handler to the function
  */
-native OrpheuFunction:OrpheuGetFunctionFromObject(object,const libFunctionName[],const libClassName[])
+native OrpheuFunction:OrpheuGetFunctionFromObject(object,const libFunctionName[],const libClassName[]);
 
 /**
  * Retrieves a handler to a function given the id of a monster of monstermod, the function name and the classname
@@ -217,4 +217,4 @@ native OrpheuFunction:OrpheuGetFunctionFromObject(object,const libFunctionName[]
  * @param libClassName	 	The library function name as it is in the file created to define the function
  * @return					A handler to the function
  */
-native OrpheuFunction:OrpheuGetFunctionFromMonster(id, const libFunctionName[], const libClassName[])
+native OrpheuFunction:OrpheuGetFunctionFromMonster(id, const libFunctionName[], const libClassName[]);
