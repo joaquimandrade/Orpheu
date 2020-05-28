@@ -24,14 +24,14 @@
  */
 stock OrpheuFunction:OrpheuGetEngineFunction(const memberName[],const libFunctionName[])
 {
-	static OrpheuStruct:engineFunctions
+	static OrpheuStruct:engineFunctions;
 	
 	if(!engineFunctions)
 	{
-		engineFunctions = OrpheuGetEngineFunctionsStruct()
+		engineFunctions = OrpheuGetEngineFunctionsStruct();
 	}
 	
-	return OrpheuCreateFunction( OrpheuGetStructMember(engineFunctions,memberName),libFunctionName )
+	return OrpheuCreateFunction( OrpheuGetStructMember(engineFunctions,memberName),libFunctionName );
 }
 
 /**
@@ -49,27 +49,27 @@ stock OrpheuFunction:OrpheuGetEngineFunction(const memberName[],const libFunctio
  */
 stock OrpheuFunction:OrpheuGetDLLFunction(const memberName[],const libFunctionName[])
 {
-	static OrpheuStruct:OrpheuDLLFunctions
+	static OrpheuStruct:OrpheuDLLFunctions;
 	
 	if(!OrpheuDLLFunctions)
 	{
-		OrpheuDLLFunctions = OrpheuGetDLLFunctionsStruct()
+		OrpheuDLLFunctions = OrpheuGetDLLFunctionsStruct();
 	}
 	
-	return OrpheuCreateFunction( OrpheuGetStructMember(OrpheuDLLFunctions,memberName),libFunctionName )
+	return OrpheuCreateFunction( OrpheuGetStructMember(OrpheuDLLFunctions,memberName),libFunctionName );
 }
 
 stock OrpheuHook:OrpheuRegisterHookFromClass(const entityClassName[],const libFunctionName[],const libClassName[],const hookFunctionName[],OrpheuHookPhase:phase = OrpheuHookPre)
 {
-	return OrpheuRegisterHook(OrpheuGetFunctionFromClass(entityClassName,libFunctionName,libClassName),hookFunctionName,phase)
+	return OrpheuRegisterHook(OrpheuGetFunctionFromClass(entityClassName,libFunctionName,libClassName),hookFunctionName,phase);
 }
 
 stock OrpheuHook:OrpheuRegisterHookFromEntity(id,const libFunctionName[],const libClassName[],const hookFunctionName[],OrpheuHookPhase:phase = OrpheuHookPre)
 {
-	return OrpheuRegisterHook(OrpheuGetFunctionFromEntity(id,libFunctionName,libClassName),hookFunctionName,phase)
+	return OrpheuRegisterHook(OrpheuGetFunctionFromEntity(id,libFunctionName,libClassName),hookFunctionName,phase);
 }
 
 stock OrpheuHook:OrpheuRegisterHookFromObject(object,const libFunctionName[],const libClassName[],const hookFunctionName[],OrpheuHookPhase:phase = OrpheuHookPre)
 {
-	return OrpheuRegisterHook(OrpheuGetFunctionFromObject(object,libFunctionName,libClassName),hookFunctionName,phase)
+	return OrpheuRegisterHook(OrpheuGetFunctionFromObject(object,libFunctionName,libClassName),hookFunctionName,phase);
 }
