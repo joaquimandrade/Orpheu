@@ -59,5 +59,12 @@ public:
 		add(structureAddress, structureHandler);
 		return structureAddress;
 	}
+
+	long createStructureBySize( StructHandler* structureHandler, unsigned int size )
+	{
+		long structureAddress = structureHandler->allocateBySize(size);
+		add(structureAddress, structureHandler);
+		return structureAddress;
+	}
 };
 

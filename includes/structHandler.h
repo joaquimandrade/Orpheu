@@ -23,7 +23,8 @@ public:
 	TypeHandler* getMemberTypeHandler(unsigned int memberID);
 	long convertMemberToAmx(AMX* amx, cell* params, int memberID, long structureAddress);
 	void convertMemberFromAmx(AMX* amx, cell* params, int memberID, long structureAddress);
-	long allocate();
+	long allocate();	
+	long allocateBySize(unsigned int size);
 	int getStructSize();
 	void convertToAmx(cell& value, long standardReturn, ConvertMode convertMode = Pass);
 };
